@@ -7,10 +7,10 @@ export class TasksController {
  constructor(private tasksService: TasksService) {}
 
  @Get()
- getAllTasks(): Task[] {
+ getTasks(): Task[] {
   return this.tasksService.getAllTasks();
  }
-
+ 
  @Get(':id')
  getTaskById(@Param('id') id: string): Task {
   return this.tasksService.getTaskById(id)
