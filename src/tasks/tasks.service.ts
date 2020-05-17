@@ -28,18 +28,6 @@ export class TasksService {
     return found;
   }
 
-  async getTasksWithFilters(filterDto: GetTasksFilterDto): Promise<Task[]> {
-    //TODO Add search parameter
-    const { status, search } = filterDto;
-    const found = await this.taskRepository.find({
-      where: [{ status: status }, { status: status }],
-    });
-    if (!found) {
-      throw new NotFoundException(`Tasks not found`);
-    }
-    return found;
-  }
-
   async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
     return this.taskRepository.createTask(createTaskDto);
   }
